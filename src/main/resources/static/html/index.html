@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>登录首页</title>
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    Hello world
+    <script>
+        $("#bnt11").click(function (){
+
+            alert(sessionStorage.getItem("token"))
+
+            $.ajax({
+                method: "GET",
+                dataType: "json",
+                data: "json",
+                contentType: "application/json;charset=UTF-8",
+                url: "http://localhost:8989/test",
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", sessionStorage.getItem("token"));
+                },
+                success: function (data){
+                }
+            })
+        })
+    </script>
+    <input type="button" value="提交" id="bnt11">
 </body>
 </html>
