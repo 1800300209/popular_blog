@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:opacity="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/css/person_msg.css" rel="stylesheet">
+    <script type="text/javascript" src="../static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/js/person_msg.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="form row">
+        <form class="form-horizontal col-sm-offset-3 col-md-offset-3">
+            <h3 class="form-title">个人信息</h3>
+            <div class="col-sm-9 col-md-9">
+                <div class="text-center">
+                    <!--        头像            -->
+                    <label for="head-img"></label>
+                    <img id="headerImg" src="../static/img/9eedc34b85eaff37516740c5f3aca089.jpeg" alt="加载失败" width="100px" height="100px">
+                    <input type="file" name="headImg" id="head-img" style="display: none">
+                </div>
+                <div class="form-group">
+                    <!--        用户名图标            -->
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input class="form-control" type="text" name="realName" id="realName" placeholder="请绑定网名" required autofocus>
+                </div>
+                <!--        电话                -->
+                <div class="form-group">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    <input class="form-control " type="text" name="phone" id="phone" placeholder="请绑定电话" required>
+                </div>
+                <!--        年龄               -->
+                <div class="form-group">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    <input class="form-control " type="text" name="age" id="age" placeholder="请绑定年龄" required>
+                </div>
+                <!--        邮箱         -->
+                <div class="form-group">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    <input class="form-control " type="email" name="mail" id="mail" placeholder="请绑定邮箱" required>
+                </div>
+                <!--         登录按钮           -->
+                <div class="form-group">
+                    <input type="button" value="保存" class="btn btn-success pull-right" id="save">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

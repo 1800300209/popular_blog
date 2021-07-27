@@ -23,9 +23,9 @@ $(function($) {
                 alert(a + '\xa0' + b)
                 if(data.code == 200){
 
-                    sessionStorage.setItem("token", a + '\xa0' + b)
+                    localStorage.setItem("token", a + '\xa0' + b)
 
-                    location.href="index.html"
+                    location.href="http://localhost:8989/getPerson"
                 }
             }
         })
