@@ -55,7 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/css/**",
                 "/js/**",
                 "/index.html",
-                "/static/html/**"
+                "/static/html/**",
+                "/static/**"
         );
     }
 
@@ -65,7 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                    .antMatchers("/login","/logout","/getImage","/register").permitAll()
+                    .antMatchers("/login","/logout","/getImage","/register","/registerByMail","/activation").permitAll()
+                    .antMatchers("test1","/findAdmin","/updateAdmin").authenticated()
                     .anyRequest().permitAll()
                 .and()
                 .headers()
@@ -91,6 +93,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService(){
         return username-> {
             Admin admin = adminService.getAdminByUserName(username);
+
+            if(admin == null){
+                admin = adminService.getAdminByMail(username);
+            }
+
             if(null!=admin){
                 List<String> roleList = roleMapper.selectRoleByUsername(admin.getUsername());
 

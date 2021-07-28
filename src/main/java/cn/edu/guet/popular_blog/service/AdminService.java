@@ -1,6 +1,9 @@
 package cn.edu.guet.popular_blog.service;
 
+import cn.edu.guet.popular_blog.dto.MailRegisterDTO;
 import cn.edu.guet.popular_blog.dto.RegisterDTO;
+import cn.edu.guet.popular_blog.dto.UpdateAdminDTO;
+import cn.edu.guet.popular_blog.dto.UpdatePwdDTO;
 import cn.edu.guet.popular_blog.pojo.Admin;
 import cn.edu.guet.popular_blog.respbean.RespBean;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -23,4 +26,14 @@ public interface AdminService extends IService<Admin> {
     RespBean login(String username, String password);
 
     RespBean register(RegisterDTO registerDTO, HttpServletRequest httpServletRequest);
+
+    RespBean updateAdmin(UpdateAdminDTO updateAdminDTO);
+
+    RespBean updatePwd(UpdatePwdDTO updatePwdDTO);
+
+    RespBean activationRegister(String confirmCode);
+
+    RespBean register(MailRegisterDTO mailRegisterDTO);
+
+    Admin getAdminByMail(String username);
 }
