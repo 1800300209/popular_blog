@@ -7,7 +7,21 @@
     </select>
 
     <select id="insertOneAdmin" statementType="CALLABLE" parameterType="string">
-        {call proc_register(#{username,mode=IN},#{password,mode=IN})}
+        {call proc_register(#{username,mode=IN},#{password,mode=IN},#{time,mode=IN})}
+    </select>
+
+    <update id="updateAdmin" parameterType="cn.edu.guet.popular_blog.dto.UpdateAdminDTO">
+        update t_admin set realname=#{realName},phone=#{phone},age=#{age},imgpath=#{imgPath},mail=#{mail}
+        where username=#{username}
+    </update>
+
+    <update id="updatePwd" parameterType="string">
+        update t_admin set password=#{newPwd}
+        where username=#{username}
+    </update>
+
+    <select id="insertByMail" statementType="CALLABLE" parameterType="string">
+        {call proc_mail(#{mail,mode=IN},#{password,mode=IN},#{time,mode=IN})}
     </select>
 
 </mapper>
