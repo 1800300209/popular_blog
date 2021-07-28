@@ -37,6 +37,8 @@ public class UploadUtil {
                     .append(fileName)
                     .toString();
 
+            fileRootPath = fileRootPath.substring(fileRootPath.indexOf(":")+1);
+
             if (i != files.length - 1) {
                 result = result + fileRootPath + fileName + ",";
             } else {

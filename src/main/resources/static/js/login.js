@@ -16,8 +16,17 @@ $(function($) {
             url: "http://localhost:8989/login",
             success: function (data){
                 alert(data.message)
+                var a = data.obj.tokenhead;
+                // alert(a)
+                var b = data.obj.token;
+                // alert(b)
+                var c = ' '
+                alert(a + c + b)
                 if(data.code == 200){
-                    location.href="index.html"
+
+                    localStorage.setItem("token", a + c + b)
+
+                    location.href="http://localhost:8989/getPerson"
                 }
             }
         })
