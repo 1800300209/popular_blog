@@ -55,7 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/css/**",
                 "/js/**",
                 "/index.html",
-                "/static/html/**"
+                "/static/html/**",
+                "/static/**"
         );
     }
 
@@ -66,7 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                     .antMatchers("/login","/logout","/getImage","/register","/registerByMail","/activation").permitAll()
-                    .antMatchers("test1","/findAdmin").authenticated()
+                    .antMatchers("test1","/findAdmin","/updateAdmin").authenticated()
                     .anyRequest().permitAll()
                 .and()
                 .headers()

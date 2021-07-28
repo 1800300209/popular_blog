@@ -28,9 +28,10 @@ $(function ($) {
         }
     })
 
+    alert(localStorage.getItem("token"))
 
     $.ajax({
-        method: "POST",
+        type: "POST",
         dataType: "json",
         data: "json",
         beforeSend: function (request) {
@@ -49,6 +50,30 @@ $(function ($) {
 
             }
         }
+    })
+
+
+    $("#save").click(function (){
+
+        var formData = new FormData($("#updateUserForm")[0]);
+
+        $.ajax({
+            method: "POST",
+            dataType: "json",
+            data: formData,
+            cache: false,
+            async: false,
+            processData : false,  //必须false才会避开jQuery对 formdata 的默认处理
+            contentType : false,
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", localStorage.getItem("token"));
+            },
+            url: "http://localhost:8989/updateAdmin",
+            success: function (data){
+                alert(data.msg)
+            }
+        })
+
     })
 
 
