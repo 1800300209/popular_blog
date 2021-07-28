@@ -64,7 +64,12 @@ spring:
     mode: HTML5 #设置模板类型
     encoding: utf-8  #设置编码
   mvc:
-    static-path-pattern: /static/**
+    static-path-pattern: /static/**,file:${fileRootPath}
+  servlet:
+       multipart:
+         enabled: true
+         max-file-size: 200MB
+         max-request-size: 200MB
 
 
 

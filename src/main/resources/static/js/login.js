@@ -20,10 +20,11 @@ $(function($) {
                 // alert(a)
                 var b = data.obj.token;
                 // alert(b)
-                alert(a + '\xa0' + b)
+                var c = ' '
+                alert(a + c + b)
                 if(data.code == 200){
 
-                    localStorage.setItem("token", a + '\xa0' + b)
+                    localStorage.setItem("token", a + c + b)
 
                     location.href="http://localhost:8989/getPerson"
                 }
