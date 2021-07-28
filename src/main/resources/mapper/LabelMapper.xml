@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.guet.popular_blog.mapper.LabelMapper">
+    <insert id="insertDate">
+        insert into t_article_label(article,label) values(#{article},#{date});
+    </insert>
+    <update id="updateDate">
+        update t_article_label set label=#{date} where article=#{article}
+    </update>
+
+    <select id="getLabelList" resultType="java.lang.String">
+        select pname from t_label group by pname;
+    </select>
+    <select id="getSubLabelList" resultType="java.lang.String">
+        select name from t_label where pname=#{value};
+    </select>
+    <select id="getLabel" resultType="java.lang.String">
+        select label from t_article_label where article=#{value}
+    </select>
+</mapper>

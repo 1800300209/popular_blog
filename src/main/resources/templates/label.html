@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加标签</title>
+    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/js/label.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/Label.css" />
+</head>
+<body>
+    <a href="#" id="label">标签管理</a>
+        <div id="labelBox">
+            <div class="close">
+                标签管理<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">x</a>
+            </div>
+            <div>
+                <div class="selected">已选标签:
+                    <div class="labeled">
+                        <span class="span_3">
+                            <span th:each="s_label:${s_label}">
+                                <span class="s_label" th:text="${s_label}"></span>
+                                <span class="deleted">✖</span>
+                            </span>
+                    </div>
+                </div>
+                <div class="select">选择标签:
+                    <span class="span_1" th:each="plabel:${labelList}">
+                        <span th:text="${plabel.pname}" ></span>
+                        <div class="spans" >
+                            <span th:each="label,stat:${plabel.labels}">
+                                <span class="span_2" th:text="${label}" ></span>
+                            </span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <button class="insert_in">确认修改</button>
+        </div>
+</body>
+</html>
